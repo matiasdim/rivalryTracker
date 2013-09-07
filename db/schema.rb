@@ -11,6 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20130907023424) do
+
+  create_table "matches", :force => true do |t|
+    t.boolean  "extraTime"
+    t.boolean  "penalties"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "player_plays_matches", :force => true do |t|
+    t.integer  "playerId"
+    t.integer  "matchId"
+    t.integer  "goals"
+    t.string   "team"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "players", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end
